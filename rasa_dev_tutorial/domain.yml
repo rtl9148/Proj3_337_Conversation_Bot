@@ -8,7 +8,29 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - walkthrough_recipe
+entities:
+  - recipe_name
+  - current_step
+  - search_url
+  
+slots:
+  recipe_url:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+#   current_step:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#     - type: custom
 
+forms:
+  recipe_url_form:
+    required_slots:
+        - recipe_url
+    
 responses:
   utter_greet:
   - text: "Hey! How are you?"
@@ -28,6 +50,10 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+  
+  utter_ask_recipe_url:
+  - text: "Please specify a URL"
+  
 
 session_config:
   session_expiration_time: 60
