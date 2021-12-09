@@ -28,3 +28,20 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+# - story: walkthrough recipe
+#   steps:
+#   - intent: walkthrough_recipe
+#   - action: recipe_url_form
+#   - action: utter_start_working_recipe
+  
+  
+
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: walkthrough_recipe
+#   - action: recipe_url_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: recipe_url

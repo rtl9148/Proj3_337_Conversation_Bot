@@ -11,3 +11,29 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: walkthrough my recipe
+  steps:
+  - intent: walkthrough_recipe
+  - action: recipe_url_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: recipe_url
+  - action: utter_start_working_recipe
+  - action: utter_recipe_options
+  
+- rule: Print out ingredients list when user picks option 1
+  steps:
+  - intent: pick_option_1
+  - action: utter_ingredients_list 
+
+- rule: Help user with recipe steps when they pick option 2
+  steps:
+  - intent: pick_option_2
+  - action: utter_recipe_step
+  
+- rule: Help the user when they need it
+  steps:
+  - intent: ask_for_help
+  - action: utter_lookup_question
+  

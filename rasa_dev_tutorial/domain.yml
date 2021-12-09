@@ -1,60 +1,90 @@
-version: "3.0"
-
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - walkthrough_recipe
+- walkthrough_recipe
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- inform_recipe_url
+- pick_option_1
+- pick_option_2
+- ask_for_help
 entities:
-  - recipe_name
-  - current_step
-  - search_url
-  
+- ingredients_list
+- recipe_name
+- recipe_url
+- step_text
 slots:
   recipe_url:
     type: text
     influence_conversation: true
     mappings:
-    - type: custom
-#   current_step:
-#     type: text
-#     influence_conversation: false
-#     mappings:
-#     - type: custom
-
+    - type: from_text
+      entity: recipe_url
+      intent: inform_recipe_url
+  step_no:
+     type: number
+     influence_conversation: false
+     mappings:
+     - type: from_text
+       intent: navigate_step
+  user_question:
+     type: text
+     influence_conversation: false
+     mappings:
+     - type: from_text
+       intent: ask_for_help
+       
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_recipe_url:
+  - text: Please specify a URL
+  utter_start_working_recipe:
+  - text: Alright, let's start working with {recipe_url}. What do you want to do?
+  utter_recipe_options:
+  - text: 1. Go over ingredients list or 2. Go over recipe steps.
+  utter_recipe_step:
+  - text: 'Step {step_no} is: {step_text}'
+  utter_lookup_question:
+  - text: 'No worries. I found a reference for you:  https://www.youtube.com/results?search_query={user_question}'
+  utter_ingredients_list:
+  - text: 'Here are the ingredients for {recipe_url}: {ingredients_list}'
+actions:
+- utter_ingredients_list
+- utter_recipe_step
+- utter_recipe_options
+- utter_start_working_recipe
 forms:
   recipe_url_form:
     required_slots:
-        - recipe_url
+    - recipe_url
     
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+#     policies:
+# - name: RulePolicy
+#   # Confidence threshold for the `core_fallback_action_name` to apply.
+#   # The action will apply if no other action was predicted with
+#   # a confidence >= core_fallback_threshold
+#   core_fallback_threshold: 0.4
+#   core_fallback_action_name: "action_default_fallback"
+#   enable_fallback_prediction: True
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-  
-  utter_ask_recipe_url:
-  - text: "Please specify a URL"
-  
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+    
+    ##after you use a slot set it to none

@@ -1,5 +1,4 @@
 version: "3.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,7 +15,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - cu
@@ -29,7 +27,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -38,7 +35,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-
 - intent: deny
   examples: |
     - no
@@ -48,7 +44,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -65,7 +60,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -82,18 +76,60 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-    
 - intent: walkthrough_recipe
   examples: |
     - Walk me through a recipe from AllRecipes.com
     - Help me learn a recipe
     - Go over a recipe
+    - Walk me through a recipe from Allrecipes.com
+    - Walk me through a recipe
+- intent: inform_recipe_url
+  examples: |
+    - https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/
+    - The recipe url is https://www.allrecipes.com/recipe/263749/chef-johns-panettone/
+    - https://www.allrecipes.com/recipe/13564/pecan-pie-bars-i/
+- intent: pick_option_1
+  examples: |
+    - 1
+    - go over ingredients list
+    - show me ingredients list
+    - Go over ingredients
+- intent: pick_option_2
+  examples: |
+    - 2
+    - Go over recipe steps
+    - Show me recipe steps
+    - recipe steps
+- intent: ask_for_help
+  examples: |
+    - How do I [preheat oven](user_question)?
+    - How do I [chop onions](user_question)?
+    - How do I [Saute meat, garlic and onions in a pan](user question)?
+    - Can you help me learn how to [chop onions](user_question)?
+    - What does [preheat oven](user_question) mean?
+    - What does [chop onions](user_question) mean?
+    - What is a [oven](user_question)?
+    - What is a [knife](user_question)?
+    - What is a [skillet](user_question)?
+    - What is a [cutting board](user_question)?
     
+- intent: ask_for_help_based_on_current_step
+  examples: |
+    - How do I do that?
+    - What is that?
     
+# temperature, time, quantity intents
+    
+- intent: navigate_step
+  examples: |
+    - Take me to the [1](step_no)st step
+    - Take me to the [4](step-no)th step
+    - Take me to the [3](step-no)rd step
+    - Take me to the [2](step-no)nd step
+
