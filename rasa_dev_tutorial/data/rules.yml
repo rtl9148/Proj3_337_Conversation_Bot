@@ -15,10 +15,8 @@ rules:
 - rule: walkthrough my recipe
   steps:
   - intent: walkthrough_recipe
-  - action: recipe_url_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: recipe_url
+  - action: utter_ask_recipe_url
+  - intent: inform_recipe_url
   - action: utter_start_working_recipe
   - action: utter_recipe_options
   

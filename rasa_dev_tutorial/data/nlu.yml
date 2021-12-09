@@ -91,9 +91,9 @@ nlu:
     - Walk me through a recipe
 - intent: inform_recipe_url
   examples: |
-    - https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/
-    - The recipe url is https://www.allrecipes.com/recipe/263749/chef-johns-panettone/
-    - https://www.allrecipes.com/recipe/13564/pecan-pie-bars-i/
+    - [https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/](recipe_url)
+    - The recipe url is [https://www.allrecipes.com/recipe/263749/chef-johns-panettone/](recipe_url)
+    - [https://www.allrecipes.com/recipe/13564/pecan-pie-bars-i/](recipe_url)
 - intent: pick_option_1
   examples: |
     - 1
@@ -108,28 +108,28 @@ nlu:
     - recipe steps
 - intent: ask_for_help
   examples: |
-    - How do I [preheat oven](user_question)?
-    - How do I [chop onions](user_question)?
-    - How do I [Saute meat, garlic and onions in a pan](user question)?
-    - Can you help me learn how to [chop onions](user_question)?
-    - What does [preheat oven](user_question) mean?
-    - What does [chop onions](user_question) mean?
     - What is a [oven](user_question)?
     - What is a [knife](user_question)?
     - What is a [skillet](user_question)?
+    - How do I [preheat oven](user_question)?
+    - How do I [chop onions](user_question)?
+    - How do I [Saute meat, garlic and onions in a pan](user_question)?
+    - Can you help me learn how to [chop onions](user_question)?
+    - What does [preheat oven](user_question) mean?
+    - What does [chop onions](user_question) mean?
     - What is a [cutting board](user_question)?
     
-- intent: ask_for_help_based_on_current_step
-  examples: |
-    - How do I do that?
-    - What is that?
+# - intent: ask_for_help_based_on_current_step
+#   examples: |
+#     - How do I do that?
+#     - What is that?
     
 # temperature, time, quantity intents
     
 - intent: navigate_step
   examples: |
-    - Take me to the [1](step_no)st step
-    - Take me to the [4](step-no)th step
-    - Take me to the [3](step-no)rd step
-    - Take me to the [2](step-no)nd step
+    - Take me to the [1](step_no) st step
+    - Take me to the [4](step_no) th step
+    - Take me to the [3](step_no) rd step
+    - Take me to the [2](step_no) nd step
 

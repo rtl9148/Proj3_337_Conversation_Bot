@@ -25,5 +25,6 @@
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
-cityName = tracker.get_slot('city')
+        cityName = tracker.get_slot('city')
+        return [SlotSet(‘slot_name’, None)]
 

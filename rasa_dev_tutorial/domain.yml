@@ -16,10 +16,9 @@ intents:
 - pick_option_2
 - ask_for_help
 entities:
-- ingredients_list
-- recipe_name
 - recipe_url
-- step_text
+- step_no
+- user_question
 slots:
   recipe_url:
     type: text
@@ -29,7 +28,7 @@ slots:
       entity: recipe_url
       intent: inform_recipe_url
   step_no:
-     type: number
+     type: text
      influence_conversation: false
      mappings:
      - type: from_text
@@ -72,10 +71,11 @@ actions:
 - utter_recipe_step
 - utter_recipe_options
 - utter_start_working_recipe
-forms:
-  recipe_url_form:
-    required_slots:
-    - recipe_url
+
+# forms:
+#   recipe_url_form:
+#     required_slots:
+#     - recipe_url
     
 #     policies:
 # - name: RulePolicy
