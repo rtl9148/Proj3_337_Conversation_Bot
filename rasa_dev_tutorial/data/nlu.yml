@@ -44,44 +44,7 @@ nlu:
     - don't like that
     - no way
     - not really
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+
 - intent: walkthrough_recipe
   examples: |
     - Walk me through a recipe from AllRecipes.com
@@ -106,6 +69,8 @@ nlu:
     - Go over recipe steps
     - Show me recipe steps
     - recipe steps
+    - repeat the current step
+    - please repeat the step
 - intent: ask_for_help
   examples: |
     - What is a [oven](user_question)?
@@ -119,10 +84,32 @@ nlu:
     - What does [chop onions](user_question) mean?
     - What is a [cutting board](user_question)?
     
-# - intent: ask_for_help_based_on_current_step
-#   examples: |
-#     - How do I do that?
-#     - What is that?
+- intent: next_step
+  examples: |
+    - Go to the next step
+    - Next step
+    - please move on to the next step
+    
+- intent: previous_step
+  examples: |
+    - Go to the previous step
+    - Go back one step
+    - please show me the previous step
+    
+- intent: ask_for_help_vague
+  examples: |
+    - How do I do that?
+    - What is that?
+    - How do you do that?
+    
+- intent: express_gratitude
+  examples: |
+    - Thanks!
+    - Thank you
+    - Great Work
+    - Wow, you are great
+    - Thanks again
+    
     
 # temperature, time, quantity intents
     

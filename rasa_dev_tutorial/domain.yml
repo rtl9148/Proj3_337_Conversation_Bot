@@ -8,13 +8,15 @@ intents:
 - goodbye
 - affirm
 - deny
-- mood_great
-- mood_unhappy
-- bot_challenge
 - inform_recipe_url
 - pick_option_1
 - pick_option_2
+- next_step
+- previous_step
+- navigate_step
+- express_gratitude
 - ask_for_help
+- ask_for_help_vague
 entities:
 - recipe_url
 - step_no
@@ -24,53 +26,56 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-    - type: from_text
+    - type: from_entity
       entity: recipe_url
       intent: inform_recipe_url
   step_no:
      type: text
      influence_conversation: false
      mappings:
-     - type: from_text
+     - type: from_entity
+       entity: step_no
        intent: navigate_step
   user_question:
      type: text
      influence_conversation: false
      mappings:
-     - type: from_text
+     - type: from_entity
+       entity: user_question
        intent: ask_for_help
        
 responses:
   utter_greet:
   - text: Hey! How are you?
-  utter_cheer_up:
-  - text: 'Here is something to cheer you up:'
-    image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
   - text: Did that help you?
-  utter_happy:
-  - text: Great, carry on!
   utter_goodbye:
   - text: Bye
-  utter_iamabot:
-  - text: I am a bot, powered by Rasa.
   utter_ask_recipe_url:
   - text: Please specify a URL
-  utter_start_working_recipe:
-  - text: Alright, let's start working with {recipe_url}. What do you want to do?
-  utter_recipe_options:
-  - text: 1. Go over ingredients list or 2. Go over recipe steps.
-  utter_recipe_step:
-  - text: 'Step {step_no} is: {step_text}'
-  utter_lookup_question:
-  - text: 'No worries. I found a reference for you:  https://www.youtube.com/results?search_query={user_question}'
-  utter_ingredients_list:
-  - text: 'Here are the ingredients for {recipe_url}: {ingredients_list}'
+  utter_options:
+  - text: "1. Go over ingredients list or 2. Go over recipe steps."
+#   utter_lookup_question:
+#   - text: 'No worries. I found a reference for you:  https://www.youtube.com/results?search_query={user_question}'
+#   utter_start_working_recipe:
+#   - text: Alright, let's start working with {recipe_url}. What do you want to do?
+#   utter_recipe_options:
+#   - text: 1. Go over ingredients list or 2. Go over recipe steps.
+#   utter_recipe_step:
+#   - text: 'Step {step_no} is: {step_text}'
+#   utter_ingredients_list:
+#   - text: 'Here are the ingredients for {recipe_url}: {ingredients_list}'
 actions:
-- utter_ingredients_list
-- utter_recipe_step
-- utter_recipe_options
-- utter_start_working_recipe
+- utter_options
+- action_get_recipe_info
+- action_print_ingredient_list
+- action_print_current_step
+- action_print_next_step
+- action_print_previous_step
+- action_go_to_step
+- action_respond_to_gratitude
+- action_lookup_question
+- action_lookup_question_vague
 
 # forms:
 #   recipe_url_form:
