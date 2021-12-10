@@ -13,13 +13,30 @@ rules:
   - intent: walkthrough_recipe
   - action: utter_ask_recipe_url
   
-- rule: get recipe info when user specifies url
-  steps:
-  - intent: inform_recipe_url
-  - action: action_get_recipe_info
-  - action: utter_options
+#- rule: get recipe info when user specifies url
+ # steps:
+  #- intent: inform_recipe_url
+  #- action: action_get_recipe_info
+  #- action: utter_options
 #   - action: utter_start_working_recipe
 #   - action: utter_recipe_options
+
+
+- rule: activate form for recipe url
+  steps:
+    - intent: walkthrough_recipe
+    - action: recipe_url_form
+    - active_loop: recipe_url_form
+
+- rule: end form for recipe url
+  condition:
+  - action: recipe_url_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_get_recipe_info
+  - action: utter_options
+
   
 - rule: Print out ingredients list when user picks option 1
   steps:

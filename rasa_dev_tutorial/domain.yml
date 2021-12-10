@@ -19,10 +19,16 @@ intents:
 - ask_for_help2
 - ask_for_help3
 - ask_for_help_vague
+- amount_item
+- time
+- temp
 entities:
 - recipe_url
 - step_no
 - user_question
+- amount_item
+- time
+- temp
 
 slots:
   recipe_url:
@@ -43,6 +49,13 @@ slots:
      mappings:
      - type: from_entity
        entity: user_question
+  amount_item:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: amount_item
+
        
 responses:
   utter_greet:
@@ -81,7 +94,11 @@ actions:
 #   recipe_url_form:
 #     required_slots:
 #     - recipe_url
-    
+forms:
+  recipe_url_form:
+	recipe_url:
+	  - type: from_text
+
 #     policies:
 # - name: RulePolicy
 #   # Confidence threshold for the `core_fallback_action_name` to apply.

@@ -119,6 +119,36 @@ nlu:
     - What does [immersion blender](user_question) mean?
     - What does [combine cheeses](user_question) mean?
 
+- intent: amount_item
+  examples: |
+    - How much [cheese](amount_item) do I need?
+    - How much [sugar](amount_item) do I need?
+    - How much [garlic](amount_item) do I need?
+    - How much [ground beef](amount_item) do I need?
+    - How much [oregano](amount_item) do I need?
+    - How much [provolone cheese](amount_item) do I need?
+    - How much [ricotta cheese](amount_item) do I need?
+    - How much [tomato sauce](amount_item) do I need?
+    - How much [baking soda](amount_item) do I need?
+    - How much [ground cinnamon](amount_item) do I need?
+- intent: time
+  examples: |
+    - How long do I bake?
+    - How long do I saute?
+    - How long do I simmer?
+    - How long do I broil?
+    - How long will it take?
+
+- intent: temp
+  examples: |
+    - What temperature?
+    - What temperature do I preheat the oven to?
+    - What temperature do I bake at?
+    - What temperature do I cook at?
+    - What temperature do I saute at?
+    - What temperature do I simmer at?
+    - What temperature do I set the oven to?
+      
     
 - intent: next_step
   examples: |
