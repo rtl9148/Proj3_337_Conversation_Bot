@@ -12,6 +12,9 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
+from recipe_assistant import recipe_assistant
+
+agent = recipe_assistant()
 
 ##RECIPE RETRIEVAL------------------------------------------------------------------------------------------
 class ActionGetRecipeInfo(Action):
@@ -23,14 +26,9 @@ class ActionGetRecipeInfo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        ##Wangcheng's code for parsing the recipe based on the url here
-        recipeUrl = tracker.get_slot('recipe_url')
-
-        
-        
-        #dispatcher.utter_message(text="Alright, so let's start working with {recipe title here!!!}. What do you want to do?")
-        
-        dispatcher.utter_message(text="Made it to get recipe info for %s" % recipe_url)
+        recipe_url = tracker.get_slot('recipe_url')
+        return_message = agent.load_recipe(recipe_url)
+        dispatcher.utter_message(text=return_message)
         return []
     
         ##code for setting a slot name to none
@@ -55,8 +53,9 @@ class ActionPrintCurrentStep(Action):
 #         else:
 #           ##do something with list of steps for recipe based on step number and put it in step_text
 #             dispatcher.utter_message(text="Step {current_step} is: {step_text}")
-
-        dispatcher.utter_message(text="Made it to print current step!")
+        
+        return_message = agent.show_current_step()
+        dispatcher.utter_message(text=return_message)
         return []
 
 class ActionPrintNextStep(Action):
@@ -75,7 +74,8 @@ class ActionPrintNextStep(Action):
 #           ##check to make sure that current_step is initialized and has a next step
 #           ##do something with list of steps for recipe based on current step and put it in step_text
 #             dispatcher.utter_message(text="Step {current_step} is: {step_text}")
-        dispatcher.utter_message(text="Made it to print next step")
+        return_message = agent.navigate_to_next()
+        dispatcher.utter_message(text=return_message)
         return []
 
 class ActionPrintPreviousStep(Action):
@@ -94,7 +94,8 @@ class ActionPrintPreviousStep(Action):
 #           ##check to make sure that current_step is initialized and has a previous step
 #           ##do something with list of steps for recipe based on current step and put it in step_text
 #             dispatcher.utter_message(text="Step {current_step} is: {step_text}")
-        dispatcher.utter_message(text="Made it to print previous step")
+        return_message = agent.navigate_to_previous()
+        dispatcher.utter_message(text=return_message)
         return []
 
 ##This action will be used whenever a user explicitly wants to go to a nth step
@@ -107,10 +108,6 @@ class ActionGoToStep(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        step_no = tracker.get_slot('step_no')
-        #do something with the step number they entered to print out step in recipe steps list
-        
-
         
 #         if recipe URL is none:
 #             dispatcher.utter_message(text="please enter url before navigating recipe")
@@ -118,7 +115,9 @@ class ActionGoToStep(Action):
 #           ##do something with list of steps for recipe based on step number and put it in step_text
 #             dispatcher.utter_message(text="Step {step_no} is: {step_text}")
 
-        dispatcher.utter_message(text="going to step %s" % step_no)
+        step_number = tracker.get_slot('step_no')
+        return_message = agent.navigate_by_number(step_number)
+        dispatcher.utter_message(text=return_message)
         return []
     
 class ActionPrintIngredientList(Action):
@@ -137,7 +136,8 @@ class ActionPrintIngredientList(Action):
 #           ##do something with list of steps for recipe based on step number and put it in step_text
 #             dispatcher.utter_message(text="Here are the ingredients for {recipe_title here!!!}: {ingredients_list here!!!}")
         
-        dispatcher.utter_message(text="found print ingredient list")    
+        return_message = agent.show_ingredients()
+        dispatcher.utter_message(text=return_message)  
         return []
     
 ##HOWTO STUFF-------------------------------------------------------------------------------------
@@ -154,8 +154,8 @@ class ActionLookupQuestion(Action):
         user_question = tracker.get_slot('user_question')
         ##put + in between each word of user question, then return result url
         
-        dispatcher.utter_message(text="No worries. I found a reference for you:  https://www.youtube.com/results?search_query= %s" % user_question)
-
+        return_message = agent.search_answer(user_question)
+        dispatcher.utter_message(text=return_message)
         return []
     
 class ActionLookupQuestionVague(Action):
