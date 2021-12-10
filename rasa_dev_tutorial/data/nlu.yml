@@ -74,15 +74,51 @@ nlu:
 - intent: ask_for_help
   examples: |
     - What is a [oven](user_question)?
+    - What is a [convection oven](user_question)?
     - What is a [knife](user_question)?
+    - What is a [butter knife](user_question)?
+    - What is a [spoon](user_question)?
+    - What is a [stirring spoon](user_question)?
+    - What is a [slotted spoon](user_question)?
     - What is a [skillet](user_question)?
+    - What is a [cutting board](user_question)?
+    - What is a [whisk](user_question)?
+    - What is a [colander](user_question)?
+    - What is a [saute pan](user_question)?
+    - What is a [broiler pan](user_question)?
+    - What is a [muffin pan](user_question)?
+    - What is a [food storage container](user_question)?
+    - What is a [large mixing bowl](user_question)?
+    - What is a [splatter guard](user_question)?
+    - What is an [immersion blender](user_question)?
+    - What is a [kitchen scale](user_question)?
+    
+- intent: ask_for_help2
+  examples: |
     - How do I [preheat oven](user_question)?
     - How do I [chop onions](user_question)?
     - How do I [Saute meat, garlic and onions in a pan](user_question)?
-    - Can you help me learn how to [chop onions](user_question)?
+    - How do I [grate cheese](user_question)?
+    - How do I [season ground beef](user_question)?
+    - How do I [cover and let simmer](user_question)?
+    - How do I [bake](user_question)?
+    - How do I [saute](user_question)?
+    - How do I [baste](user_question)?
+    - How do I [discard grease](user_question)?
+    
+- intent: ask_for_help3
+  examples: |
     - What does [preheat oven](user_question) mean?
     - What does [chop onions](user_question) mean?
-    - What is a [cutting board](user_question)?
+    - What does [discard grease](user_question) mean?
+    - What does [saute](user_question) mean?
+    - What does [saute chicken and rice](user_question) mean?
+    - What does [simmer](user_question) mean?
+    - What does [bake](user_question) mean?
+    - What does [toss salad](user_question) mean?
+    - What does [immersion blender](user_question) mean?
+    - What does [combine cheeses](user_question) mean?
+
     
 - intent: next_step
   examples: |

@@ -16,33 +16,33 @@ intents:
 - navigate_step
 - express_gratitude
 - ask_for_help
+- ask_for_help2
+- ask_for_help3
 - ask_for_help_vague
 entities:
 - recipe_url
 - step_no
 - user_question
+
 slots:
   recipe_url:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: recipe_url
-      intent: inform_recipe_url
   step_no:
      type: text
      influence_conversation: false
      mappings:
      - type: from_entity
        entity: step_no
-       intent: navigate_step
   user_question:
      type: text
      influence_conversation: false
      mappings:
      - type: from_entity
        entity: user_question
-       intent: ask_for_help
        
 responses:
   utter_greet:

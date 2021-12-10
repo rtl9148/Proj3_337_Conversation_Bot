@@ -53,6 +53,16 @@ rules:
   - intent: ask_for_help
   - action: action_lookup_question
   
+- rule: Help the user when they need it 2
+  steps:
+  - intent: ask_for_help2
+  - action: action_lookup_question
+  
+- rule: Help the user when they need it
+  steps:
+  - intent: ask_for_help3
+  - action: action_lookup_question
+  
 - rule: when user says thanks, ask if you can move onto next step if recipe url is not none
   steps:
   - intent: express_gratitude

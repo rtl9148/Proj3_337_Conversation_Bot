@@ -12,7 +12,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from recipe_assistant import recipe_assistant
+from .recipe_assistant import recipe_assistant
 
 agent = recipe_assistant()
 
@@ -27,6 +27,7 @@ class ActionGetRecipeInfo(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         recipe_url = tracker.get_slot('recipe_url')
+        dispatcher.utter_message(text="recipe_url is %s" % recipe_url)
         return_message = agent.load_recipe(recipe_url)
         dispatcher.utter_message(text=return_message)
         return []

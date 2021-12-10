@@ -7,7 +7,7 @@ from fractions import Fraction
 import requests, spacy
 from lxml import html
 
-from all_ingredient_list import all_ingredient_list
+from .all_ingredient_list import all_ingredient_list
 
 spacy_nlp = spacy.load("en_core_web_sm")
 
