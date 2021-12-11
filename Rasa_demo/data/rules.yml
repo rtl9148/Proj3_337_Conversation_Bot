@@ -1,0 +1,124 @@
+version: "3.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+##RECIPE RETRIEVAL
+- rule: walkthrough my recipe
+  steps:
+  - intent: initiate_walkthrough_recipe
+  - action: utter_ask_recipe_url
+  
+#- rule: get recipe info when user specifies url
+ # steps:
+  #- intent: inform_recipe_url
+  #- action: action_get_recipe_info
+  #- action: utter_options
+#   - action: utter_start_working_recipe
+#   - action: utter_recipe_options
+
+
+- rule: activate form for recipe url
+  steps:
+    - intent: walkthrough_recipe
+    - action: recipe_url_form
+    - active_loop: recipe_url_form
+
+- rule: Submit form for recipe url
+  condition:
+  - active_loop: recipe_url_form
+  steps:
+  - action: recipe_url_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_get_recipe_info
+  - action: utter_options
+
+  
+- rule: Print out ingredients list when user picks option 1
+  steps:
+  - intent: pick_option_1
+  - action: action_print_ingredient_list 
+
+- rule: Help user with recipe steps when they pick option 2
+  steps:
+  - intent: pick_option_2
+  - action: action_print_current_step
+  
+##NAVIGATION UTTERANCES
+- rule: go to next step when user wants to
+  steps:
+  - intent: next_step
+  - action: action_print_next_step
+  
+- rule: go to previous step when user wants to
+  steps:
+  - intent: previous_step
+  - action: action_print_previous_step
+
+- rule: When user wants to go to certain step, take them to it
+  steps:
+  - intent: navigate_step
+  - action: action_go_to_step
+  
+##HOWTO QUESTIONS
+- rule: Help the user when they need it
+  steps:
+  - intent: ask_for_help
+  - action: action_lookup_question
+  
+- rule: Help the user when they need it 2
+  steps:
+  - intent: ask_for_help2
+  - action: action_lookup_question
+  
+- rule: Help the user when they need it
+  steps:
+  - intent: ask_for_help3
+  - action: action_lookup_question
+  
+# =============================================================================
+# - rule: when user says thanks, ask if you can move onto next step if recipe url is not none
+#   steps:
+#   - intent: express_gratitude
+#   - action: action_respond_to_gratitude
+# =============================================================================
+  
+- rule: vague howto question
+  steps:
+  - intent: ask_for_help_vague_act
+  - action: action_lookup_question_act
+  
+- rule: vague whatis question
+  steps:
+  - intent: ask_for_help_vague_obj
+  - action: action_lookup_question_obj
+
+##Parameter QUESTIONS
+- rule: quantity parameter
+  steps:
+  - intent: quant
+  - action: action_lookup_quant
+  
+- rule: duration parameter
+  steps:
+  - intent: time
+  - action: action_lookup_time
+  
+- rule: temperature parameter
+  steps:
+  - intent: temp
+  - action: action_lookup_temp
+  
+- rule: give substitution for ingredient when asked
+  steps:
+  - intent: ingred_substitution
+  - action: action_lookup_ingredient_substitution
+ 
+  
+  

@@ -1,0 +1,225 @@
+version: "3.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+
+##RECIPE RETRIEVAL AND NAVIGATION-----------------------------------
+- intent: walkthrough_recipe
+  examples: |
+    - https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/
+    - https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/
+    - https://www.allrecipes.com/recipe/257359/pomegranate-chicken/
+    
+
+
+- intent: initiate_walkthrough_recipe
+  examples: |
+    - Walk me through a recipe
+    - Will you help me with a recipe?
+    - Can you help me with a recipe?
+    - Please help me learn a recipe
+    - Help me learn a recipe 
+    - Help me with a recipe
+
+    
+- intent: pick_option_1
+  examples: |
+    - go over ingredients list
+    - show me ingredients list
+    - Go over ingredients
+- intent: pick_option_2
+  examples: |
+    - Go over recipe steps
+    - Show me recipe steps
+    - recipe steps
+    - repeat the current step
+    - please repeat the step
+    
+- intent: next_step
+  examples: |
+    - Go to the next step
+    - Next step
+    - please move on to the next step
+    
+- intent: previous_step
+  examples: |
+    - Go to the previous step
+    - Go back one step
+    - please show me the previous step
+    
+- intent: navigate_step
+  examples: |
+    - Take me to the [1](step_no) st step
+    - Take me to the [4](step_no) th step
+    - Take me to the [3](step_no) rd step
+    - Take me to the [2](step_no) nd step
+    
+
+###ASK FOR HELP WITH LOOKUP--------------------------------
+- intent: ask_for_help
+  examples: |
+    - What is a [oven](user_question)?
+    - What is a [convection oven](user_question)?
+    - What is a [knife](user_question)?
+    - What is a [butter knife](user_question)?
+    - What is a [spoon](user_question)?
+    - What is a [stirring spoon](user_question)?
+    - What is a [slotted spoon](user_question)?
+    - What is a [skillet](user_question)?
+    - What is a [cutting board](user_question)?
+    - What is a [whisk](user_question)?
+    - What is a [colander](user_question)?
+    - What is a [saute pan](user_question)?
+    - What is a [broiler pan](user_question)?
+    - What is a [muffin pan](user_question)?
+    - What is a [food storage container](user_question)?
+    - What is a [large mixing bowl](user_question)?
+    - What is a [splatter guard](user_question)?
+    - What is an [immersion blender](user_question)?
+    - What is a [kitchen scale](user_question)?
+    
+- intent: ask_for_help2
+  examples: |
+    - How do I [preheat oven](user_question)?
+    - How do I [chop onions](user_question)?
+    - How do I [Saute meat, garlic and onions in a pan](user_question)?
+    - How do I [grate cheese](user_question)?
+    - How do I [season ground beef](user_question)?
+    - How do I [cover and let simmer](user_question)?
+    - How do I [bake](user_question)?
+    - How do I [saute](user_question)?
+    - How do I [baste](user_question)?
+    - How do I [discard grease](user_question)?
+    
+- intent: ask_for_help3
+  examples: |
+    - What does [preheat oven](user_question) mean?
+    - What does [chop onions](user_question) mean?
+    - What does [discard grease](user_question) mean?
+    - What does [saute](user_question) mean?
+    - What does [saute chicken and rice](user_question) mean?
+    - What does [simmer](user_question) mean?
+    - What does [bake](user_question) mean?
+    - What does [toss salad](user_question) mean?
+    - What does [immersion blender](user_question) mean?
+    - What does [combine cheeses](user_question) mean?
+
+- intent: ask_for_help_vague_act
+  examples: |
+    - How do I do that?
+    - How to do that?
+    - How do you do that?
+    
+- intent: ask_for_help_vague_obj
+  examples: |
+    - What is it
+    - What is that?
+    - What is this?
+    
+###RECIPE PARAMETER QUESTIONS-----------------------------
+- intent: quant
+  examples: |
+    - How much [cheese](amount_item) do I need?
+    - How much [sugar](amount_item) do I need?
+    - How much [garlic](amount_item) do I need?
+    - How much [ground beef](amount_item) do I need?
+    - How much [oregano](amount_item) do I need?
+    - How much [provolone cheese](amount_item) do I need?
+    - How much [ricotta cheese](amount_item) do I need?
+    - How much [tomato sauce](amount_item) do I need?
+    - How much [baking soda](amount_item) do I need?
+    - How much [ground cinnamon](amount_item) do I need?
+    - How much [ground ginger](amount_item) do I need?
+    - How much [ground cloves](amount_item) do I need?
+    - How many [eggs](amount_item) do I need?
+    - How many [onions](amount_item) do I need?
+    - How many [sweet potatoes](amount_item) do I need?
+    - How many [green peppers](amount_item) do I need?
+    
+- intent: time
+  examples: |
+    - How long do I bake?
+    - How long do I saute?
+    - How long do I simmer?
+    - How long do I broil?
+    - How long will it take?
+
+- intent: temp
+  examples: |
+    - What temperature?
+    - What temperature do I preheat the oven to?
+    - What temperature do I bake at?
+    - What temperature do I cook at?
+    - What temperature do I saute at?
+    - What temperature do I simmer at?
+    - What temperature do I set the oven to?
+    
+- intent: ingred_substitution
+  examples: |
+    - What can I substitute for [provalone cheese](ingred_subst)?
+    - What can I substitute for [ricotta cheese](ingred_subst)?
+    - What can I substitute for [tofu](ingred_subst)?
+    - What can I substitute for [chicken breast](ingred_subst)?
+    - What can I substitute for [chicken thigh](ingred_subst)?
+    - What can I substitute for [chicken leg](ingred_subst)?
+    - What can I substitute for [beef](ingred_subst)?
+    - What can I substitute for [pork](ingred_subst)?
+    - What can I substitute for [ham](ingred_subst)?
+   
+    
+- intent: express_gratitude
+  examples: |
+    - Thanks!
+    - Thank you
+    - Great Work
+    - Wow, you are great
+    - Thanks again
+    
+    
+# temperature, time, quantity intents
+    
+
+

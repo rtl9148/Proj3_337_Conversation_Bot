@@ -1,0 +1,113 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- walkthrough_recipe
+- initiate_walkthrough_recipe
+- greet
+- goodbye
+- affirm
+- deny
+- inform_recipe_url
+- pick_option_1
+- pick_option_2
+- next_step
+- previous_step
+- navigate_step
+- express_gratitude
+- ask_for_help
+- ask_for_help2
+- ask_for_help3
+- ask_for_help_vague_act
+- ask_for_help_vague_obj
+- quant
+- time
+- temp
+- ingred_substitution
+entities:
+- step_no
+- user_question
+- amount_item
+- ingred_subst
+- recipe_url
+
+slots:
+  recipe_url:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+#     entity: recipe_url
+  step_no:
+     type: text
+     influence_conversation: false
+     mappings:
+     - type: from_entity
+       entity: step_no
+  user_question:
+     type: text
+     influence_conversation: false
+     mappings:
+     - type: from_entity
+       entity: user_question
+  amount_item:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: amount_item
+  ingred_subst:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: ingred_subst
+
+       
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  utter_ask_recipe_url:
+  - text: Please specify a URL
+  utter_options:
+  - text: Go over ingredients list or Go over recipe steps.
+
+actions:
+- utter_options
+- action_get_recipe_info
+- action_print_ingredient_list
+- action_print_current_step
+- action_print_next_step
+- action_print_previous_step
+- action_go_to_step
+- action_respond_to_gratitude
+- action_lookup_question
+- action_lookup_question_act
+- action_lookup_question_obj
+- action_lookup_quant
+- action_lookup_time
+- action_lookup_temp
+- action_lookup_ingredient_substitution
+
+forms:
+  recipe_url_form:
+    required_slots:
+    - recipe_url
+
+
+#     policies:
+# - name: RulePolicy
+#   # Confidence threshold for the `core_fallback_action_name` to apply.
+#   # The action will apply if no other action was predicted with
+#   # a confidence >= core_fallback_threshold
+#   core_fallback_threshold: 0.4
+#   core_fallback_action_name: "action_default_fallback"
+#   enable_fallback_prediction: True
+
+    
+    ##after you use a slot set it to none
