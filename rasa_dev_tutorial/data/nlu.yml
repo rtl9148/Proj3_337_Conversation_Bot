@@ -45,18 +45,26 @@ nlu:
     - no way
     - not really
 
+
+##RECIPE RETRIEVAL AND NAVIGATION-----------------------------------
 - intent: walkthrough_recipe
   examples: |
-    - Walk me through a recipe from AllRecipes.com
-    - Help me learn a recipe
-    - Go over a recipe
-    - Walk me through a recipe from Allrecipes.com
-    - Walk me through a recipe
-- intent: inform_recipe_url
+    - https://www.allrecipes.com/recipe/24074/alysias-basic-meat-lasagna/
+    - https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/
+    - https://www.allrecipes.com/recipe/257359/pomegranate-chicken/
+    
+
+
+- intent: initiate_walkthrough_recipe
   examples: |
-    - [https://www.allrecipes.com/recipe/218091/classic-and-simple-meat-lasagna/](recipe_url)
-    - The recipe url is [https://www.allrecipes.com/recipe/263749/chef-johns-panettone/](recipe_url)
-    - [https://www.allrecipes.com/recipe/13564/pecan-pie-bars-i/](recipe_url)
+    - Walk me through a recipe
+    - Will you help me with a recipe?
+    - Can you help me with a recipe?
+    - Please help me learn a recipe
+    - Help me learn a recipe 
+    - Help me with a recipe
+
+    
 - intent: pick_option_1
   examples: |
     - 1
@@ -71,6 +79,28 @@ nlu:
     - recipe steps
     - repeat the current step
     - please repeat the step
+    
+- intent: next_step
+  examples: |
+    - Go to the next step
+    - Next step
+    - please move on to the next step
+    
+- intent: previous_step
+  examples: |
+    - Go to the previous step
+    - Go back one step
+    - please show me the previous step
+    
+- intent: navigate_step
+  examples: |
+    - Take me to the [1](step_no) st step
+    - Take me to the [4](step_no) th step
+    - Take me to the [3](step_no) rd step
+    - Take me to the [2](step_no) nd step
+    
+
+###ASK FOR HELP WITH LOOKUP--------------------------------
 - intent: ask_for_help
   examples: |
     - What is a [oven](user_question)?
@@ -119,6 +149,13 @@ nlu:
     - What does [immersion blender](user_question) mean?
     - What does [combine cheeses](user_question) mean?
 
+- intent: ask_for_help_vague
+  examples: |
+    - How do I do that?
+    - What is that?
+    - How do you do that?
+    
+###RECIPE PARAMETER QUESTIONS-----------------------------
 - intent: amount_item
   examples: |
     - How much [cheese](amount_item) do I need?
@@ -131,6 +168,11 @@ nlu:
     - How much [tomato sauce](amount_item) do I need?
     - How much [baking soda](amount_item) do I need?
     - How much [ground cinnamon](amount_item) do I need?
+    - How many [eggs](amount_item) do I need?
+    - How many [onions](amount_item) do I need?
+    - How many [sweet potatoes](amount_item) do I need?
+    - How many [green peppers](amount_item) do I need?
+    
 - intent: time
   examples: |
     - How long do I bake?
@@ -148,25 +190,19 @@ nlu:
     - What temperature do I saute at?
     - What temperature do I simmer at?
     - What temperature do I set the oven to?
-      
     
-- intent: next_step
+- intent: ingred_substitution
   examples: |
-    - Go to the next step
-    - Next step
-    - please move on to the next step
-    
-- intent: previous_step
-  examples: |
-    - Go to the previous step
-    - Go back one step
-    - please show me the previous step
-    
-- intent: ask_for_help_vague
-  examples: |
-    - How do I do that?
-    - What is that?
-    - How do you do that?
+    - What can I substitute for [provalone cheese](ingred_subst)?
+    - What can I substitute for [ricotta cheese](ingred_subst)?
+    - What can I substitute for [tofu](ingred_subst)?
+    - What can I substitute for [chicken breast](ingred_subst)?
+    - What can I substitute for [chicken thigh](ingred_subst)?
+    - What can I substitute for [chicken leg](ingred_subst)?
+    - What can I substitute for [beef](ingred_subst)?
+    - What can I substitute for [pork](ingred_subst)?
+    - What can I substitute for [ham](ingred_subst)?
+   
     
 - intent: express_gratitude
   examples: |
@@ -179,10 +215,5 @@ nlu:
     
 # temperature, time, quantity intents
     
-- intent: navigate_step
-  examples: |
-    - Take me to the [1](step_no) st step
-    - Take me to the [4](step_no) th step
-    - Take me to the [3](step_no) rd step
-    - Take me to the [2](step_no) nd step
+
 

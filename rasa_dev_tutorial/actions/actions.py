@@ -69,12 +69,6 @@ class ActionPrintNextStep(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         
-#         if recipe URL is none:
-#             dispatcher.utter_message(text="please enter url before navigating recipe")
-#         else:
-#           ##check to make sure that current_step is initialized and has a next step
-#           ##do something with list of steps for recipe based on current step and put it in step_text
-#             dispatcher.utter_message(text="Step {current_step} is: {step_text}")
         return_message = agent.navigate_to_next()
         dispatcher.utter_message(text=return_message)
         return []
@@ -89,12 +83,6 @@ class ActionPrintPreviousStep(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         
-#         if recipe URL is none:
-#             dispatcher.utter_message(text="please enter url before navigating recipe")
-#         else:
-#           ##check to make sure that current_step is initialized and has a previous step
-#           ##do something with list of steps for recipe based on current step and put it in step_text
-#             dispatcher.utter_message(text="Step {current_step} is: {step_text}")
         return_message = agent.navigate_to_previous()
         dispatcher.utter_message(text=return_message)
         return []
@@ -109,12 +97,6 @@ class ActionGoToStep(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        
-#         if recipe URL is none:
-#             dispatcher.utter_message(text="please enter url before navigating recipe")
-#         else:
-#           ##do something with list of steps for recipe based on step number and put it in step_text
-#             dispatcher.utter_message(text="Step {step_no} is: {step_text}")
 
         step_number = tracker.get_slot('step_no')
         return_message = agent.navigate_by_number(step_number)
@@ -200,4 +182,36 @@ class ActionRespondToGratitude(Action):
 
         dispatcher.utter_message(text="Found respond to gratitude")
         return []
+    
+class ActionLookupIngredientAmount(Action):
 
+    def name(self) -> Text:
+        return "action_lookup_ingredient_amount"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+       #no slots needed here, just print this out
+        amount_item = tracker.get_slot('amount_item')
+        
+
+        dispatcher.utter_message(text="Found amt item %s" % amount_item)
+        return []
+
+
+class ActionLookupIngredientSubstitution(Action):
+
+    def name(self) -> Text:
+        return "action_lookup_ingredient_substitution"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+       #no slots needed here, just print this out
+        ingred_subst = tracker.get_slot('ingred_subst')
+        
+
+        dispatcher.utter_message(text="Found ingredient substitution %s" % ingred_subst)
+        return []

@@ -22,21 +22,23 @@ intents:
 - amount_item
 - time
 - temp
+- ingred_substitution
 entities:
-- recipe_url
 - step_no
 - user_question
 - amount_item
+- ingred_subst
 - time
 - temp
+- recipe_url
 
 slots:
   recipe_url:
     type: text
-    influence_conversation: false
+    influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: recipe_url
+    - type: from_text
+#     entity: recipe_url
   step_no:
      type: text
      influence_conversation: false
@@ -55,6 +57,12 @@ slots:
     mappings:
     - type: from_entity
       entity: amount_item
+  ingred_subst:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: ingred_susbt
 
        
 responses:
@@ -68,16 +76,7 @@ responses:
   - text: Please specify a URL
   utter_options:
   - text: "1. Go over ingredients list or 2. Go over recipe steps."
-#   utter_lookup_question:
-#   - text: 'No worries. I found a reference for you:  https://www.youtube.com/results?search_query={user_question}'
-#   utter_start_working_recipe:
-#   - text: Alright, let's start working with {recipe_url}. What do you want to do?
-#   utter_recipe_options:
-#   - text: 1. Go over ingredients list or 2. Go over recipe steps.
-#   utter_recipe_step:
-#   - text: 'Step {step_no} is: {step_text}'
-#   utter_ingredients_list:
-#   - text: 'Here are the ingredients for {recipe_url}: {ingredients_list}'
+
 actions:
 - utter_options
 - action_get_recipe_info
@@ -89,15 +88,14 @@ actions:
 - action_respond_to_gratitude
 - action_lookup_question
 - action_lookup_question_vague
+- action_lookup_ingredient_amount
+- action_lookup_ingredient_substitution
 
-# forms:
-#   recipe_url_form:
-#     required_slots:
-#     - recipe_url
 forms:
   recipe_url_form:
-	recipe_url:
-	  - type: from_text
+    required_slots:
+    - recipe_url
+
 
 #     policies:
 # - name: RulePolicy

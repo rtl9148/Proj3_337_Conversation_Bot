@@ -3,61 +3,61 @@ version: "3.0"
 stories:
 
 
-- story: walkthrough recipe 1
-  steps:
-  - intent: walkthrough_recipe
-  - action: utter_ask_recipe_url
-  - intent: inform_recipe_url
-  - action: action_get_recipe_info
-  - action: utter_options
-  - intent: pick_option_1
-  - action: action_print_ingredient_list
-  - intent: express_gratitude
-  - action: action_respond_to_gratitude
-  - intent: affirm
-  - action: action_print_next_step
+# - story: walkthrough recipe 1
+#   steps:
+#   - intent: walkthrough_recipe
+#   - action: utter_ask_recipe_url
+#   - intent: inform_recipe_url
+#   - action: action_get_recipe_info
+#   - action: utter_options
+#   - intent: pick_option_1
+#   - action: action_print_ingredient_list
+#   - intent: express_gratitude
+#   - action: action_respond_to_gratitude
+#   - intent: affirm
+#   - action: action_print_next_step
   
-- story: walkthrough recipe 2
-  steps:
-  - intent: walkthrough_recipe
-  - action: utter_ask_recipe_url
-  - intent: inform_recipe_url
-  - action: action_get_recipe_info
-  - action: utter_options
-  - intent: pick_option_1
-  - action: action_print_ingredient_list
-  - intent: express_gratitude
-  - action: action_respond_to_gratitude
-  - intent: deny
-  - action: utter_options
+# - story: walkthrough recipe 2
+#   steps:
+#   - intent: walkthrough_recipe
+#   - action: utter_ask_recipe_url
+#   - intent: inform_recipe_url
+#   - action: action_get_recipe_info
+#   - action: utter_options
+#   - intent: pick_option_1
+#   - action: action_print_ingredient_list
+#   - intent: express_gratitude
+#   - action: action_respond_to_gratitude
+#   - intent: deny
+#   - action: utter_options
   
-- story: walkthrough recipe 3
-  steps:
-  - intent: walkthrough_recipe
-  - action: utter_ask_recipe_url
-  - intent: inform_recipe_url
-  - action: action_get_recipe_info
-  - action: utter_options
-  - intent: pick_option_2
-  - action: action_print_current_step
-  - intent: express_gratitude
-  - action: action_respond_to_gratitude
-  - intent: affirm
-  - action: action_print_next_step
+# - story: walkthrough recipe 3
+#   steps:
+#   - intent: walkthrough_recipe
+#   - action: utter_ask_recipe_url
+#   - intent: inform_recipe_url
+#   - action: action_get_recipe_info
+#   - action: utter_options
+#   - intent: pick_option_2
+#   - action: action_print_current_step
+#   - intent: express_gratitude
+#   - action: action_respond_to_gratitude
+#   - intent: affirm
+#   - action: action_print_next_step
   
-- story: walkthrough recipe 4
-  steps:
-  - intent: walkthrough_recipe
-  - action: utter_ask_recipe_url
-  - intent: inform_recipe_url
-  - action: action_get_recipe_info
-  - action: utter_options
-  - intent: pick_option_2
-  - action: action_print_current_step
-  - intent: express_gratitude
-  - action: action_respond_to_gratitude
-  - intent: deny
-  - action: utter_options
+# - story: walkthrough recipe 4
+#   steps:
+#   - intent: walkthrough_recipe
+#   - action: utter_ask_recipe_url
+#   - intent: inform_recipe_url
+#   - action: action_get_recipe_info
+#   - action: utter_options
+#   - intent: pick_option_2
+#   - action: action_print_current_step
+#   - intent: express_gratitude
+#   - action: action_respond_to_gratitude
+#   - intent: deny
+#   - action: utter_options
   
 
 

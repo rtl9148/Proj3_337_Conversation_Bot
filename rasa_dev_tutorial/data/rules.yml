@@ -10,7 +10,7 @@ rules:
 ##RECIPE RETRIEVAL
 - rule: walkthrough my recipe
   steps:
-  - intent: walkthrough_recipe
+  - intent: initiate_walkthrough_recipe
   - action: utter_ask_recipe_url
   
 #- rule: get recipe info when user specifies url
@@ -28,8 +28,10 @@ rules:
     - action: recipe_url_form
     - active_loop: recipe_url_form
 
-- rule: end form for recipe url
+- rule: Submit form for recipe url
   condition:
+  - active_loop: recipe_url_form
+  steps:
   - action: recipe_url_form
   - active_loop: null
   - slot_was_set:
@@ -89,6 +91,17 @@ rules:
   steps:
   - intent: ask_for_help_vague
   - action: action_lookup_question_vague
+
+##Parameter QUESTIONS
+- rule: give parameter to ingredient when asked
+  steps:
+  - intent: amount_item
+  - action: action_lookup_ingredient_amount
   
+- rule: give substitution for ingredient when asked
+  steps:
+  - intent: ingred_substitution
+  - action: action_lookup_ingredient_substitution
+ 
   
   
