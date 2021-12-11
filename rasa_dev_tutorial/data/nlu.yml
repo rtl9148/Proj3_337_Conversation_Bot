@@ -168,6 +168,8 @@ nlu:
     - How much [tomato sauce](amount_item) do I need?
     - How much [baking soda](amount_item) do I need?
     - How much [ground cinnamon](amount_item) do I need?
+    - How much [ground ginger](amount_item) do I need?
+    - How much [ground cloves](amount_item) do I need?
     - How many [eggs](amount_item) do I need?
     - How many [onions](amount_item) do I need?
     - How many [sweet potatoes](amount_item) do I need?

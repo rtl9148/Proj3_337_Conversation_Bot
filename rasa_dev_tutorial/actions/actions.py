@@ -195,7 +195,7 @@ class ActionLookupIngredientAmount(Action):
        #no slots needed here, just print this out
         amount_item = tracker.get_slot('amount_item')
         
-
+        #just printing out item right now, we need to find the amount
         dispatcher.utter_message(text="Found amt item %s" % amount_item)
         return []
 
@@ -212,6 +212,8 @@ class ActionLookupIngredientSubstitution(Action):
        #no slots needed here, just print this out
         ingred_subst = tracker.get_slot('ingred_subst')
         
-
+        #just printing out the ingredient right now, we need to find substitution
         dispatcher.utter_message(text="Found ingredient substitution %s" % ingred_subst)
         return []
+    
+    

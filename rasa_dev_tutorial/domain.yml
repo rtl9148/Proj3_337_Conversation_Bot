@@ -4,6 +4,7 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - walkthrough_recipe
+- initiate_walkthrough_recipe
 - greet
 - goodbye
 - affirm
@@ -62,7 +63,7 @@ slots:
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: ingred_susbt
+      entity: ingred_subst
 
        
 responses:
